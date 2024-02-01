@@ -3,70 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adobe Software</title>
+    <title>Fourup Media Tournament</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f0f0f0;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+            background-color: #f4f4f4;
+            color: #333;
         }
 
-        #container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .software {
-            margin-bottom: 20px;
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
             text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 1.5em;
         }
 
         img {
             max-width: 100%;
             height: auto;
+            margin-top: 20px;
         }
 
-        h2 {
-            margin-top: 10px;
-        }
-
-        .download-button {
-            display: inline-block;
+        .download-btn {
+            display: block;
+            margin: 20px auto;
             padding: 10px 20px;
-            font-size: 16px;
-            text-align: center;
-            text-decoration: none;
+            font-size: 1.2em;
             background-color: #3498db;
             color: #fff;
+            text-decoration: none;
             border-radius: 5px;
-            transition: background-color 0.3s;
-            margin-top: 10px;
         }
 
-        .download-button:hover {
-            background-color: #2980b9;
+        .instructions {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .countdown {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+
+        footer {
+            margin-top: 50px;
+            font-size: 0.8em;
+            color: #777;
+        }
+
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            max-width: 50px;
+            height: auto;
         }
     </style>
+    <style>
+        body {
+          background-image: url('gojo.jpeg');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+          background-color: rgba(0, 0, 0, 0.9);
+        }
+        </style>
 </head>
 <body>
-    <div id="container">
-        <div class="software">
-            <img src="assets/images/Adobe_After_Effects_CC_icon.svg.png" alt="Adobe Premier Pro" width="100" height="100"> 
-            <h2>Adobe After Effects</h2>
-            <a class="download-button" href="https://drive.google.com/drive/folders/1G-GpdhpgrHi4ZYkPCVqP2ZSnlLqhNZ80?usp=drive_link" target="_blank">Download Now</a>
+        <div class="container">
+        <img src="fourupmedia.jpg" alt="Fourup Media Logo" class="logo">
+        <h1>Fourup Media</h1>
+        <h2>presents</h2>
+        <img src="gojo.jpeg" alt="Tournament Thumbnail">
+        <a href="https://drive.google.com/drive/folders/1ohDUY2p6tE3m2P4qlBUYGpwVOm6GqLPE?usp=sharing " target="_blank" class="download-btn">Download Tournament Details</a>
+
+        <div class="instructions">
+            <h2>Instructions:</h2>
+            <p>1.Their will be penalty if the participants failed to give the video in time.</p>
+            <p>2. There is no restriction with editing style.</p>
+            <p>3. Participants must sumbit video along with project file as the evidence , no other software allowed other than Pr and Ae.</p>
         </div>
-        <div class="software">
-            <img src="assets/images/Adobe_Premiere_Pro_CC_icon.svg.png" alt="After Effects" width="100" height="100">
-            <h2>Adobe Premiere Pro</h2>
-            <a class="download-button" href="https://drive.google.com/drive/folders/1P_CzOO4W6d8zJYqzbVwZsGX8dUYEmCBs?usp=drive_link" target="_blank">Download Now</a>
-        </div>
+
+        <div class="countdown" id="countdown"></div>
+
+        <footer>
+            <p>All rights reserved for Fourup Media</p>
+        </footer>
     </div>
+
+    <script>
+        // Calculate countdown for 33 hours and 35 minutes
+        const countdownDate = new Date();
+        countdownDate.setHours(countdownDate.getHours() + 33);
+        countdownDate.setMinutes(countdownDate.getMinutes() + 35);
+
+        function updateCountdown() {
+            const now = new Date();
+            const timeDiff = countdownDate - now;
+
+            const hours = Math.floor(timeDiff / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').innerText = `Tournament ends in ${hours}h ${minutes}m ${seconds}s.`;
+
+            if (timeDiff <= 0) {
+                document.getElementById('countdown').innerText = 'Tournament has ended.';
+                clearInterval(countdownInterval);
+            }
+        }
+
+        // Initial call to display the countdown immediately
+        updateCountdown();
+
+        // Update the countdown every second
+        const countdownInterval = setInterval(updateCountdown, 1000);
+    </script>
 </body>
 </html>
