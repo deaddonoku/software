@@ -70,15 +70,7 @@
             height: auto;
         }
     </style>
-    <style>
-        body {
-          background-image: url('gojo.jpeg');
-          background-repeat: no-repeat;
-          background-attachment: fixed;
-          background-size: cover;
-          background-color: rgba(0, 0, 0, 0.9);
-        }
-        </style>
+ 
 </head>
 <body>
         <div class="container">
@@ -90,7 +82,7 @@
 
         <div class="instructions">
             <h2>Instructions:</h2>
-            <p>1.Their will be penalty if the participants failed to give the video in time.</p>
+            <p>1.Their will be penalty if the participants failed to give the video in time, Winner will the price pool of 300.</p>
             <p>2. There is no restriction with editing style.</p>
             <p>3. Participants must sumbit video along with project file as the evidence , no other software allowed other than Pr and Ae.</p>
         </div>
